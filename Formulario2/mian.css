@@ -9,19 +9,16 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #333;
-  background-color: #f0f0f0;
+  background-color: #f0f4f0;
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
   font-family: inherit;
   font-size: inherit;
 }
 
 header {
-  background-color: #e63946;
+  background-color: #2a9d8f;
   color: white;
   padding: 20px 32px;
 }
@@ -30,13 +27,28 @@ header h1 {
   font-size: 1.8rem;
 }
 
-form {
+header p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+main {
   max-width: 600px;
   margin: 40px auto;
+  padding: 0 16px;
+}
+
+form {
   padding: 32px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
+}
+
+form h2 {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  color: #2a9d8f;
 }
 
 section {
@@ -47,11 +59,12 @@ section {
 }
 
 section h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  border-bottom: 2px solid #333;
-  padding-bottom: 8px;
+  border-bottom: 2px solid #2a9d8f;
+  padding-bottom: 6px;
   margin-bottom: 4px;
+  color: #2a9d8f;
 }
 
 label {
@@ -80,18 +93,13 @@ input[type="number"]:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #e63946;
+  border-color: #2a9d8f;
   background-color: #fff;
-  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
 }
 
-select {
-  cursor: pointer;
-}
-
-textarea {
-  resize: vertical;
-}
+select { cursor: pointer; }
+textarea { resize: vertical; }
 
 .opcion-radio,
 .opcion-checkbox {
@@ -104,7 +112,7 @@ textarea {
 button[type="submit"] {
   width: 100%;
   padding: 14px;
-  background-color: #e63946;
+  background-color: #2a9d8f;
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -115,7 +123,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #c1121f;
+  background-color: #21867a;
 }
 
 footer {
