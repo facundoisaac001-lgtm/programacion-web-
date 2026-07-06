@@ -1,0 +1,317 @@
+/* ============================================
+   MOVIE EXPLORER — tema "marquesina de cine"
+   Paleta: carbón #12100e, terciopelo #6e1423,
+           bronce #c9a24b, crema-foco #f4e8c1, texto #ece6da
+   ============================================ */
+
+:root {
+  --carbon: #12100e;
+  --panel: #1c1a17;
+  --terciopelo: #6e1423;
+  --bronce: #c9a24b;
+  --foco: #f4e8c1;
+  --texto: #ece6da;
+  --gris: #8d867a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--carbon);
+  color: var(--texto);
+  font-family: "Archivo", sans-serif;
+  min-height: 100vh;
+}
+
+/* ---------- Marquesina (header) ---------- */
+
+.marquee {
+  background: linear-gradient(180deg, #1a1713 0%, var(--carbon) 100%);
+  border-bottom: 3px solid var(--bronce);
+  padding: 1.6rem 1.5rem 1.8rem;
+  position: relative;
+}
+
+.bulbs {
+  height: 10px;
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+  background-image: radial-gradient(var(--foco) 3px, transparent 3.5px);
+  background-size: 22px 10px;
+  background-repeat: repeat-x;
+  opacity: 0.85;
+  animation: parpadeo 2.4s infinite ease-in-out;
+}
+
+.bulbs:last-child {
+  margin: 1rem auto 0;
+}
+
+@keyframes parpadeo {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulbs {
+    animation: none;
+    opacity: 0.8;
+  }
+}
+
+.marquee-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  letter-spacing: 0.02em;
+  color: var(--foco);
+}
+
+.logo span {
+  color: var(--bronce);
+}
+
+.tagline {
+  margin-top: 0.35rem;
+  color: var(--gris);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Layout ---------- */
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---------- Controles ---------- */
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  background: var(--panel);
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo-busqueda {
+  flex: 1 1 260px;
+}
+
+.campo label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bronce);
+}
+
+.campo input,
+.campo select {
+  font-family: "Archivo", sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(236, 230, 218, 0.2);
+  border-radius: 4px;
+  background: var(--carbon);
+  color: var(--texto);
+  outline: none;
+  min-width: 180px;
+}
+
+.campo input::placeholder {
+  color: var(--gris);
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: var(--bronce);
+  box-shadow: 0 0 0 2px rgba(201, 162, 75, 0.25);
+}
+
+.btn-limpiar {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.65rem 1.2rem;
+  background: var(--terciopelo);
+  color: var(--foco);
+  border: 1px solid var(--bronce);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.btn-limpiar:hover {
+  background: #8a1a2c;
+  transform: translateY(-1px);
+}
+
+.btn-limpiar:active {
+  transform: translateY(0);
+}
+
+/* ---------- Contador ---------- */
+
+.contador {
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gris);
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Grilla ---------- */
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* perforaciones de rollo de película en el borde superior */
+.card::before {
+  content: "";
+  display: block;
+  height: 8px;
+  background-image: radial-gradient(var(--carbon) 2.5px, transparent 3px);
+  background-size: 16px 8px;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-color: var(--bronce);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--bronce);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9);
+}
+
+.card-info {
+  padding: 0.9rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.genero {
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  background: var(--terciopelo);
+  color: var(--foco);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
+.card h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  color: var(--foco);
+}
+
+.card .meta {
+  font-size: 0.75rem;
+  color: var(--gris);
+  font-style: italic;
+}
+
+.card p {
+  font-size: 0.83rem;
+  color: #cfc8ba;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.rating {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--bronce);
+}
+
+/* ---------- Estado vacío ---------- */
+
+.vacio {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  color: var(--gris);
+  border: 1px dashed rgba(201, 162, 75, 0.4);
+  border-radius: 6px;
+}
+
+.oculto {
+  display: none;
+}
+
+/* ---------- Footer ---------- */
+
+.pie {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--gris);
+  border-top: 1px solid rgba(201, 162, 75, 0.25);
+}
